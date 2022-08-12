@@ -2,34 +2,35 @@
 #include "stdio.h"
 
 
-
 int main(__attribute__((unused)) int argc, char *argv[]) {
     FILE *fp;
-    char c, quebra_linha = '\n', espaco = ' ';
-    int n = 0;
-    int l = 1;
-    int p = 0;
+    char character, line_break = '\n', space = ' ';
+    int number_character = 0;
+    int line = 1;
+    int words = 0;
 
     if ((fp = fopen((const char *) argv[1], "rw")) == NULL) {
         printf("ERRO NA ABERTURA DE ARQUIVO\n");
     } else
         printf("ABERTO COM SUCESSO\n");
 
-    while ((c = fgetc(fp)) != EOF) {
-        if (c != espaco && c != quebra_linha)
-            n++;
-        if (c == quebra_linha || c == EOF) {
-            l++;
-        }
-        if (c == espaco || c == quebra_linha) {
-            p++;
-        }
+    while ((character = fgetc(fp)) != EOF) {
+        if (character != space && character != line_break)
+            number_character++;
+
+        if (character == line_break || character == EOF)
+            line++;
+
+        if (character == space || character == line_break)
+            words++;
+
     }
+
     fclose(fp);
 
-    printf("Existem %d letras no arquivo \n", n);
-    printf("Existem %d linha no arquivo \n", l);
-    printf("Existem %d palavras no arquivo \n", p);
+    printf("Existem %d letras no arquivo \n", number_character);
+    printf("Existem %d linha no arquivo \n", line);
+    printf("Existem %d palavras no arquivo \n", words);
 
     return 0;
 }

@@ -15,13 +15,17 @@ int main(__attribute__((unused)) int argc, char *argv[]) {
         printf("ABERTO COM SUCESSO\n");
 
     while ((character = fgetc(fp)) != EOF) {
+
+        if (words == 0)
+            words++;
+
         if (character != space && character != line_break)
             number_character++;
 
         if (character == line_break || character == EOF)
             line++;
 
-        if (character == space || character == line_break)
+        if (character == space || character == line_break || character == EOF)
             words++;
 
     }

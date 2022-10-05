@@ -174,3 +174,5 @@ Livros
 CMakeLists.txt
 
 *.yy.c
+*tab.c
+*tab.h

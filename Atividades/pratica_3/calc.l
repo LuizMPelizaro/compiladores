@@ -11,6 +11,9 @@
 "^" {return POW;}
 "(" {return OP;}
 ")" {return CP;}
+"fat" {return FAT;}
+"fib" {return FIB;}
+"\\" {return QUA;}
 
 [SsEe][AaXx][Ii][RrTt] {return exit;}
 

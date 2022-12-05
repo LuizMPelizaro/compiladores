@@ -2,10 +2,11 @@
     #include <stdio.h>
     #include <stdlib.h>
     #include <math.h>
+    #include "funcs.h"
 %}
 
 %token ADD SUB MUL DIV
-%token SIN  LOG SQRT POW
+%token SIN LOG SQRT POW FAT FIB QUA
 %token EXIT
 %token OP CP
 %token NUMBER
@@ -30,7 +31,9 @@ calclist:
  |factor DIV term {$$ = $1 / $3;}
  |factor POW exp {$$ = pow($1,$3);}
  |factor SIN  {$$ = sin($1);}
- |factor SQRT
+ |FAT factor  {$$ = fat($1);}
+ |FIB factor  {$$ = fib($1);}
+ |factor QUA term{$$ = $1 / $3;}
 
  term: NUMBER
  | OP exp CP {$$ = $2;}

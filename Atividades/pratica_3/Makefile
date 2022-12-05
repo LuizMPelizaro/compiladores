@@ -4,7 +4,7 @@ run: compile
 	./${PROG}.exe
 
 compile: clear  parser scanner
-	gcc -o ${PROG}.exe ${PROG}.tab.c ${PROG}.yy.c -std=c89 -lfl -lm
+	gcc -o ${PROG}.exe ${PROG}.tab.c ${PROG}.yy.c funcs.c -std=c89 -lfl -lm
 
 parser:
 	bison -d ${PROG}.y
